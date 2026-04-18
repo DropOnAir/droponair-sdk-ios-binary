@@ -8,13 +8,24 @@ let package = Package(
         .macOS(.v13),
     ],
     products: [
-        .library(name: "DropOnAirSDK", targets: ["DropOnAirSDK"]),
+        .library(name: "DropOnAirSDK", targets: ["DropOnAirSDKWrapper"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.27.0"),
     ],
     targets: [
         .binaryTarget(
-            name: "DropOnAirSDK",
+            name: "DropOnAirSDKBinary",
             url: "https://github.com/DropOnAir/droponair-sdk-ios-binary/releases/download/0.3.0/DropOnAirSDK.xcframework.zip",
             checksum: "6e30b89f99fec79f5d9404b0225735951c1d924b0403a0246216711f97933b36"
+        ),
+        .target(
+            name: "DropOnAirSDKWrapper",
+            dependencies: [
+                "DropOnAirSDKBinary",
+                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+            ],
+            path: "Sources/DropOnAirSDKWrapper"
         ),
     ]
 )
