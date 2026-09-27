@@ -16,8 +16,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "DropOnAirSDKBinary",
-            url: "https://github.com/DropOnAir/droponair-sdk-ios-binary/releases/download/0.45.0/DropOnAirSDK.xcframework.zip",
-            checksum: "7616070fa0de460d8941b4a5fddf97b93652519452c90c1c2b3c3656b98d4dd1"
+            url: "https://github.com/DropOnAir/droponair-sdk-ios-binary/releases/download/0.45.1/DropOnAirSDK.xcframework.zip",
+            checksum: "7f7e2edbc2f6476c4bbe089d56864e55d30196f27b94e1f44502caf44529c9df"
         ),
         .target(
             name: "DropOnAirSDKWrapper",
